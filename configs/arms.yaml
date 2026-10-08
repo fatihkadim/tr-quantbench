@@ -1,0 +1,45 @@
+# Nicemleme kolları (README §5).
+reference_dtype: bfloat16  # fp16 kolu için tüm modellerde tek ve tutarlı seçim (bkz. DECISIONS.md)
+
+calibration:
+  n_samples: 128
+  seq_len: 512
+  seeds: [0, 1, 2]
+  langs: [en, tr, mix]  # mix = %50 TR + %50 EN
+
+arms:
+  fp16:
+    method: none
+    bits: 16
+    where: local_or_colab
+  bnb_int8:
+    method: bitsandbytes
+    bits: 8
+    load_in_8bit: true
+    where: local
+  bnb_nf4:
+    method: bitsandbytes
+    bits: 4
+    quant_type: nf4
+    double_quant: true   # sabit tutulur
+    compute_dtype: bfloat16
+    where: local
+  gptq_w4:
+    method: gptq
+    bits: 4
+    group_size: 128
+    calibrated: true
+    package: TBD  # Faz 4'te seçilecek; DECISIONS.md
+    where: colab
+  awq_w4:
+    method: awq
+    bits: 4
+    group_size: 128
+    calibrated: true
+    package: TBD  # Faz 4'te seçilecek; DECISIONS.md
+    where: colab
+
+# Ayrı iz, HF sonuçlarıyla aynı tabloda raporlanmaz.
+gguf_track:
+  enabled: false
+  quants: [Q8_0, Q5_K_M, Q4_K_M]

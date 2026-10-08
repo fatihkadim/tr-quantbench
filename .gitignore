@@ -1,0 +1,33 @@
+# Python / uv
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Büyük veya gizli dosyalar (README §0.9, §9)
+*.safetensors
+*.bin
+*.gguf
+*.pt
+models/
+data/flores/raw/
+data/raw/
+data/human_eval/key.json
+human_eval/key.json
+
+# Not defterleri
+.ipynb_checkpoints/
+
+# İşletim sistemi / editör
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+.claude/
+CLAUDE.md
+CLAUDE.local.md

@@ -1,0 +1,16 @@
+# Değerlendirme ayarları (README §7).
+seed: 0
+batch_size: 8
+add_bos: true          # tüm modeller ve kollar için aynı kural
+smoke_n: 10            # duman testi cümle sayısı (README §0.5)
+bootstrap:
+  n_resamples: 10000
+  ci: 0.95
+
+paths:
+  flores_dir: data/flores
+  probes_dir: data/probes
+  calibration_dir: data/calibration
+  results_raw: results/raw
+  results_tables: results/tables
+  results_figures: results/figures
