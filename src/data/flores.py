@@ -1,4 +1,4 @@
-"""FLORES-200 devtest yükleyici (README §6.1).
+"""FLORES-200 devtest yükleyici (PROTOCOL §6.1).
 
 Kaynak: Meta'nın resmi arşivi (CC-BY-SA 4.0). Arşiv SHA-256 ile doğrulanır; ham ve işlenmiş
 veri git'e konmaz, yalnızca bu betik ve `data/flores/VERSION.md` repoda tutulur.

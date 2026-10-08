@@ -1,8 +1,8 @@
-"""Cümle bazlı NLL (README §7.3).
+"""Cümle bazlı NLL (PROTOCOL §7.3).
 
 Her cümle ayrı bir dizi olarak değerlendirilir: [önek] + cümle token'ları. Önek, modelin BOS
 token'ıdır; BOS'u olmayan modellerde (ör. Qwen2.5) EOS token'ı aynı rolde kullanılır
-(DECISIONS.md D-008). Cümlenin TÜM token'ları skorlanır; önek skorlanmaz.
+(DECISIONS.md D-007). Cümlenin TÜM token'ları skorlanır; önek skorlanmaz.
 """
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-# Nicemleme kolları (README §5).
+# Nicemleme kolları (PROTOCOL §5).
 reference_dtype: bfloat16  # fp16 kolu için tüm modellerde tek ve tutarlı seçim (bkz. DECISIONS.md)
 
 calibration:
@@ -29,14 +29,14 @@ arms:
     bits: 4
     group_size: 128
     calibrated: true
-    package: TBD  # Faz 4'te seçilecek; DECISIONS.md
+    package: TBD  # seçim ve gerekçe DECISIONS.md'de
     where: colab
   awq_w4:
     method: awq
     bits: 4
     group_size: 128
     calibrated: true
-    package: TBD  # Faz 4'te seçilecek; DECISIONS.md
+    package: TBD  # seçim ve gerekçe DECISIONS.md'de
     where: colab
 
 # Ayrı iz, HF sonuçlarıyla aynı tabloda raporlanmaz.

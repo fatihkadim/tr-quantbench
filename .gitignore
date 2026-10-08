@@ -8,17 +8,22 @@ __pycache__/
 build/
 dist/
 
-# Büyük veya gizli dosyalar (README §0.9, §9)
+# Model ağırlıkları
 *.safetensors
 *.bin
 *.gguf
 *.pt
 models/
+
+# Ham ve türetilmiş veri (indirme betikleriyle yeniden üretilir)
 data/flores/raw/
 data/flores/processed/
-data/raw/
 data/human_eval/key.json
-human_eval/key.json
+
+# Yerel çıktılar ve gizli bilgiler
+results/env_info.json
+*.log
+.env
 
 # Not defterleri
 .ipynb_checkpoints/
@@ -29,6 +34,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Yerel çalışma notları ve asistan yapılandırması
 .claude/
 CLAUDE.md
 CLAUDE.local.md
+docs/PLAN.md
+docs/STATUS.md

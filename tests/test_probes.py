@@ -1,4 +1,4 @@
-"""Ünlü uyumu ve minimal çift testleri (README §6.3). Beklenen çıktılar elle yazılmıştır."""
+"""Ünlü uyumu ve minimal çift testleri (PROTOCOL §6.3). Beklenen çıktılar elle yazılmıştır."""
 
 import pytest
 

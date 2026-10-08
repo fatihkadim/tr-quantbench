@@ -29,7 +29,7 @@
       "acc": 0.96875
     }
   },
-  "seconds": 32.2,
+  "seconds": 56.4,
   "max_vram_gb": 2.33,
   "env": {
     "python": "3.11.9",
@@ -37,9 +37,9 @@
     "packages": {
       "torch": "2.11.0+cu128",
       "transformers": "5.19.0",
-      "accelerate": "1.15.0",
-      "bitsandbytes": "0.50.2",
-      "datasets": "5.1.0",
+      "accelerate": null,
+      "bitsandbytes": null,
+      "datasets": null,
       "huggingface-hub": "1.33.0",
       "numpy": "2.4.6"
     },
@@ -52,9 +52,9 @@
       "bf16_supported": true
     },
     "config_sha256": {
-      "configs/models.yaml": "54ca16d6812ea01254284da81f754e7089635b4312fe5a20d9cd6a935ac73071",
-      "configs/arms.yaml": "2e851fcf6bf7bae748dbe40a35e4978aa0338241024101439c3c6c14a4ac31e2",
-      "configs/eval.yaml": "a4e6fecc85c3610b5f7c467fb046dd6ec0245e20a8339a3bf1e65d2b5559c34e"
+      "configs/models.yaml": "b8b76df360cda44b3c69e30c6147d89dcad81d1ef89b4c69853d8e76e68b558d",
+      "configs/arms.yaml": "804c3a9e699ca9b8a1717146246222c8e79430a6229c61d8c6c8f1a5e91796e1",
+      "configs/eval.yaml": "ed5a85f7d350dd872f67aedf81f8987113b8f537cd9e9f05d2b56cd7b0ff5366"
     },
     "data_sha256": {
       "data/lexicon/tr_roots_prototype.tsv": "ad34a2f04b09dce471f571f60a7bc0097488f216db20584a3c83f05444059085",

@@ -1,4 +1,4 @@
-"""Bayt başına bit (README §7.3): BPB = toplam_NLL_nat / (ln 2 × toplam_UTF8_bayt)."""
+"""Bayt başına bit (PROTOCOL §7.3): BPB = toplam_NLL_nat / (ln 2 × toplam_UTF8_bayt)."""
 
 from __future__ import annotations
 

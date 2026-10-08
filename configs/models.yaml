@@ -1,7 +1,7 @@
-# Aday modeller (README §4). Nihai iki modeli KULLANICI onaylar (Faz 1 kapısı).
+# Aday modeller ve seçim durumu (PROTOCOL §4).
 # revision: 2026-10-08'de Hugging Face API'sinden okunan main commit hash'i.
 # status: candidate | approved | not_selected | rejected
-# 2026-10-09: kullanıcı qwen2.5-1.5b ve llama-3.2-1b'yi onayladı (DECISIONS.md D-013).
+# 2026-10-09: qwen2.5-1.5b ve llama-3.2-1b onaylandı (DECISIONS.md D-010).
 models:
   qwen2.5-1.5b:
     hf_id: Qwen/Qwen2.5-1.5B

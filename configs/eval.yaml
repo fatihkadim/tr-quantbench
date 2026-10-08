@@ -1,8 +1,8 @@
-# Değerlendirme ayarları (README §7).
+# Değerlendirme ayarları (PROTOCOL §7).
 seed: 0
-batch_size: 1          # BF16 dolgu etkisi nedeniyle 1 (DECISIONS.md D-010)
+batch_size: 1          # BF16 dolgu etkisi nedeniyle 1 (DECISIONS.md D-009)
 add_bos: true          # tüm modeller ve kollar için aynı kural
-smoke_n: 10            # duman testi cümle sayısı (README §0.5)
+smoke_n: 10            # duman testi cümle sayısı (PROTOCOL ilkeleri)
 bootstrap:
   n_resamples: 10000
   ci: 0.95

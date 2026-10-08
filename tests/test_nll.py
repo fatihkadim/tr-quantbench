@@ -1,4 +1,4 @@
-"""NLL hesabı: dolgu sonucu değiştirmemeli (README §7.3)."""
+"""NLL hesabı: dolgu sonucu değiştirmemeli (PROTOCOL §7.3)."""
 
 import math
 

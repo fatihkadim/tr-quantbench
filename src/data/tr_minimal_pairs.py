@@ -1,4 +1,4 @@
-"""Türkçe minimal çift üreteci (README §6.3).
+"""Türkçe minimal çift üreteci (PROTOCOL §6.3).
 
 Ek zinciri `-lAr-(I)mIz-DA-ki` sırasıyla kurulur; 1–4 ekli formlar bu zincirin önekleridir.
 Çoğul eki hep ilk sırada olduğundan kök sonu ünsüz yumuşaması (kitap → kitabı) hiç tetiklenmez.
@@ -122,7 +122,7 @@ def violate(parts: list[str], suffixes: tuple[Suffix, ...], which: int) -> list[
 
 
 # --- Taşıyıcı cümleler (kademe başına) -------------------------------------------------------
-# Not: Prototip şablonlar. Faz 2'de kullanıcı doğrulamasından geçecek.
+# Not: Prototip şablonlar; insan doğrulamasından geçecek (PROTOCOL §6.3).
 
 TEMPLATES: dict[int, list[str]] = {
     1: ["Dün {} gördüm.", "Burada {} var.", "Masada yeni {} duruyordu."],

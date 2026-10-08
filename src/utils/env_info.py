@@ -1,4 +1,4 @@
-"""Çalıştırma ortamı bilgisi (README §9): paket sürümleri, GPU, CUDA, dosya hash'leri."""
+"""Çalıştırma ortamı bilgisi (PROTOCOL §9): paket sürümleri, GPU, CUDA, dosya hash'leri."""
 
 from __future__ import annotations
 

@@ -4,22 +4,14 @@ version = "0.1.0"
 description = "Türkçe'de düşük bitli nicemlemenin morfolojik etkisini ölçen değerlendirme çalışması"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = [
     "torch>=2.9",
-    "transformers>=4.46",
-    "accelerate>=1.0",
-    "bitsandbytes>=0.45",
-    "datasets>=3.0",
-    "huggingface-hub>=0.26",
-    "sentencepiece>=0.2",
-    "pyyaml>=6.0",
+    "transformers>=4.56",
+    "huggingface-hub>=0.34",
     "numpy>=1.26",
-    "pandas>=2.2",
-    "scipy>=1.13",
-    "statsmodels>=0.14",
-    "matplotlib>=3.9",
-    "tqdm>=4.66",
+    "pyyaml>=6.0",
 ]
 
 [dependency-groups]

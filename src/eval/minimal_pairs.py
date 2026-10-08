@@ -1,4 +1,4 @@
-"""Minimal çift doğruluğu (README §7.1): good cümlesine bad'den yüksek toplam log-olasılık."""
+"""Minimal çift doğruluğu (PROTOCOL §7.1): good cümlesine bad'den yüksek toplam log-olasılık."""
 
 from __future__ import annotations
 

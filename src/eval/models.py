@@ -9,9 +9,9 @@ DTYPES = {"bfloat16": torch.bfloat16, "float16": torch.float16, "float32": torch
 
 
 def load(model_cfg: dict, arm: str, arms_cfg: dict, device: str = "cuda"):
-    """Bir modeli verilen kolda yükler. Faz 1'de yalnızca `fp16` (referans) kolu desteklenir."""
+    """Bir modeli verilen kolda yükler. Şimdilik yalnızca `fp16` (referans) kolu desteklenir."""
     if arm != "fp16":
-        raise NotImplementedError(f"'{arm}' kolu Faz 3'te eklenecek")
+        raise NotImplementedError(f"'{arm}' kolu henüz uygulanmadı")
     dtype = DTYPES[arms_cfg["reference_dtype"]]
     kwargs = {"revision": model_cfg["revision"]}
     if not model_cfg.get("gated"):
