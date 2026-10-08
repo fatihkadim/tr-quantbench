@@ -1,0 +1,64 @@
+{
+  "args": {
+    "model": "llama-3.2-1b",
+    "arm": "fp16",
+    "task": "tr_pairs_proto",
+    "limit": null,
+    "batch_size": null
+  },
+  "batch_size": 1,
+  "summary": {
+    "all": {
+      "n": 384,
+      "acc": 0.9869791666666666
+    },
+    "n_suffix=1": {
+      "n": 96,
+      "acc": 1.0
+    },
+    "n_suffix=2": {
+      "n": 96,
+      "acc": 0.9791666666666666
+    },
+    "n_suffix=3": {
+      "n": 96,
+      "acc": 1.0
+    },
+    "n_suffix=4": {
+      "n": 96,
+      "acc": 0.96875
+    }
+  },
+  "seconds": 32.2,
+  "max_vram_gb": 2.33,
+  "env": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.19.0",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "datasets": "5.1.0",
+      "huggingface-hub": "1.33.0",
+      "numpy": "2.4.6"
+    },
+    "gpu": {
+      "cuda_available": true,
+      "cuda": "12.8",
+      "cudnn": 91900,
+      "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "gpu_mem_gb": 4.0,
+      "bf16_supported": true
+    },
+    "config_sha256": {
+      "configs/models.yaml": "54ca16d6812ea01254284da81f754e7089635b4312fe5a20d9cd6a935ac73071",
+      "configs/arms.yaml": "2e851fcf6bf7bae748dbe40a35e4978aa0338241024101439c3c6c14a4ac31e2",
+      "configs/eval.yaml": "a4e6fecc85c3610b5f7c467fb046dd6ec0245e20a8339a3bf1e65d2b5559c34e"
+    },
+    "data_sha256": {
+      "data/lexicon/tr_roots_prototype.tsv": "ad34a2f04b09dce471f571f60a7bc0097488f216db20584a3c83f05444059085",
+      "data/probes/tr_minimal_pairs_prototype.jsonl": "ad33ce80940244061f15f09178d9cd5f80095017ba823a217e52834111f52385"
+    }
+  }
+}

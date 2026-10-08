@@ -2,7 +2,7 @@
 
 | Kaynak | Kullanım | Lisans | Doğrulama tarihi | Atıf |
 |---|---|---|---|---|
-| FLORES-200 devtest | Paralel test seti | _Faz 1'de doğrulanacak_ | | |
+| FLORES-200 devtest | Paralel test seti | CC-BY-SA 4.0 ([facebookresearch/flores](https://github.com/facebookresearch/flores) README, "Licenses") | 2026-10-08 | NLLB Team ve ark. (2022), *No Language Left Behind: Scaling Human-Centered Machine Translation*, arXiv:2207.04672 |
 | Vikipedi (TR/EN) | Kalibrasyon | _Faz 4'te doğrulanacak_ | | |
 | BLiMP | EN kontrol seti (aday) | _Faz 2'de doğrulanacak_ | | |
 | Kendi minimal çiftlerimiz | Morfoloji probları | MIT (proje kodu ile) | | Bu çalışma |

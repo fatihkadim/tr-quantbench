@@ -1,5 +1,6 @@
 # TR-QuantBench görev hedefleri (README §9).
-# Windows'ta make: C:\msys64\usr\bin\make.exe (PATH'e ekleyin) veya Git Bash/WSL.
+# Windows'ta yerel GNU make gerekir (ör. `winget install ezwinports.make`). MSYS make ortam
+# değişkenlerini sildiği için çalışmaz (DECISIONS.md D-011).
 
 UV ?= uv
 RUN := $(UV) run
@@ -23,13 +24,16 @@ lint:
 
 # Aşağıdaki hedefler ilgili fazlarda doldurulacak.
 data:
-	@echo "Faz 1: FLORES-200 indirme henüz uygulanmadı." && exit 1
+	$(RUN) python -m scripts.prepare_flores
 
 probes:
 	@echo "Faz 2: minimal çift üreteci henüz uygulanmadı." && exit 1
 
+SMOKE_MODEL ?= qwen2.5-1.5b
+
 eval-smoke:
-	@echo "Faz 1: duman testi henüz uygulanmadı." && exit 1
+	$(RUN) python -m scripts.run_eval --model $(SMOKE_MODEL) --arm fp16 --task flores_bpb --limit 10
+	$(RUN) python -m scripts.run_eval --model $(SMOKE_MODEL) --arm fp16 --task tr_pairs_proto --limit 10
 
 eval:
 	@echo "Faz 3: eval (MODEL=$(MODEL) ARM=$(ARM)) henüz uygulanmadı." && exit 1

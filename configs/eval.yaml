@@ -1,6 +1,6 @@
 # Değerlendirme ayarları (README §7).
 seed: 0
-batch_size: 8
+batch_size: 1          # BF16 dolgu etkisi nedeniyle 1 (DECISIONS.md D-010)
 add_bos: true          # tüm modeller ve kollar için aynı kural
 smoke_n: 10            # duman testi cümle sayısı (README §0.5)
 bootstrap:

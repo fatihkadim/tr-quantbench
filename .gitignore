@@ -15,6 +15,7 @@ dist/
 *.pt
 models/
 data/flores/raw/
+data/flores/processed/
 data/raw/
 data/human_eval/key.json
 human_eval/key.json

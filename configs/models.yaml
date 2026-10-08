@@ -1,6 +1,7 @@
 # Aday modeller (README §4). Nihai iki modeli KULLANICI onaylar (Faz 1 kapısı).
 # revision: 2026-10-08'de Hugging Face API'sinden okunan main commit hash'i.
-# status: candidate | approved | rejected
+# status: candidate | approved | not_selected | rejected
+# 2026-10-09: kullanıcı qwen2.5-1.5b ve llama-3.2-1b'yi onayladı (DECISIONS.md D-013).
 models:
   qwen2.5-1.5b:
     hf_id: Qwen/Qwen2.5-1.5B
@@ -9,7 +10,7 @@ models:
     params_b: 1.5
     license: apache-2.0
     gated: false
-    status: candidate
+    status: approved
   qwen2.5-3b:
     hf_id: Qwen/Qwen2.5-3B
     revision: 3aab1f1954e9cc14eb9509a215f9e5ca08227a9b
@@ -17,7 +18,7 @@ models:
     params_b: 3.1
     license: qwen-research  # HF etiketi "other"; Qwen Research License, ticari değil
     gated: false
-    status: candidate
+    status: not_selected
   gemma-2-2b:
     hf_id: google/gemma-2-2b
     revision: c5ebcd40d208330abc697524c919956e692655cf
@@ -25,7 +26,7 @@ models:
     params_b: 2.6
     license: gemma
     gated: true  # HF'de erişim onayı gerekir
-    status: candidate
+    status: not_selected
   llama-3.2-1b:
     hf_id: meta-llama/Llama-3.2-1B
     revision: 4e20de362430cd3b72f300e6b0f18e50e7166e08
@@ -33,7 +34,7 @@ models:
     params_b: 1.2
     license: llama3.2
     gated: true
-    status: candidate
+    status: approved
   llama-3.2-3b:
     hf_id: meta-llama/Llama-3.2-3B
     revision: 13afe5124825b4f3751f836b40dafda64c1ed062
@@ -41,4 +42,4 @@ models:
     params_b: 3.2
     license: llama3.2
     gated: true
-    status: candidate
+    status: not_selected
