@@ -3,11 +3,15 @@
 import pytest
 
 from src.data.tr_minimal_pairs import (
+    CATEGORIES,
     CHAIN,
+    SUFFIXES,
+    TEMPLATES,
     ablative,
     build,
     dative,
     generate,
+    generate_prototype,
     genitive,
     locative,
     plural,
@@ -75,14 +79,65 @@ def test_ki_does_not_harmonize():
         violate(build("ev", CHAIN), CHAIN, 3)
 
 
+@pytest.mark.parametrize("root,cat,expected", [
+    ("kitap", ("abl",), "kitaptan"),
+    ("ev", ("loc",), "evde"),
+    ("masa", ("abl",), "masadan"),
+    ("kitap", ("plural", "dat"), "kitaplara"),
+    ("ev", ("plural", "gen"), "evlerin"),
+    ("göz", ("plural", "abl"), "gözlerden"),
+    ("kuş", ("plural", "poss1pl", "dat"), "kuşlarımıza"),
+    ("köprü", ("plural", "poss1pl", "gen"), "köprülerimizin"),
+    ("okul", ("plural", "poss1pl", "abl"), "okullarımızdan"),
+    ("kitap", ("plural", "poss1pl", "gen", "ki"), "kitaplarımızınki"),
+    ("ev", ("plural", "poss1pl", "gen", "ki"), "evlerimizinki"),
+    ("kapı", ("plural", "poss1pl", "loc", "ki"), "kapılarımızdaki"),
+])
+def test_categories(root, cat, expected):
+    assert "".join(build(root, tuple(SUFFIXES[n] for n in cat))) == expected
+
+
+def test_every_category_has_templates():
+    for cats in CATEGORIES.values():
+        for cat in cats:
+            assert len(TEMPLATES[cat[-1]]) >= 5
+            assert all(t.count("{}") == 1 for t in TEMPLATES[cat[-1]])
+
+
+ROOTS = ["kitap", "ev", "göz", "kapı", "okul", "köprü", "masa", "kuş", "deniz", "yol"]
+
+
 def test_generate_no_duplicates_and_single_diff():
-    pairs = generate(["kitap", "ev", "göz", "kapı"], seed=0)
+    pairs = generate(ROOTS, seed=0, per_level=60)
     assert len({(p["good"], p["bad"]) for p in pairs}) == len(pairs)
+    for level in CATEGORIES:
+        assert sum(p["n_suffix"] == level for p in pairs) == 60
     for p in pairs:
         assert p["good"] != p["bad"]
         assert len(p["good"]) == len(p["bad"])
         assert sum(a != b for a, b in zip(p["good"], p["bad"])) == 1
+        assert p["violated"] != "ki"
 
 
 def test_generate_is_deterministic():
-    assert generate(["kitap", "ev"], seed=1) == generate(["kitap", "ev"], seed=1)
+    assert generate(ROOTS, seed=1, per_level=60) == generate(ROOTS, seed=1, per_level=60)
+
+
+def test_generate_raises_when_quota_impossible():
+    with pytest.raises(RuntimeError):
+        generate(["kitap"], seed=0, per_level=1200)
+    with pytest.raises(ValueError):
+        generate(ROOTS, seed=0, per_level=24)
+
+
+def test_prototype_file_is_reproducible():
+    import json
+    from pathlib import Path
+
+    from src.data.tr_minimal_pairs import read_roots
+
+    root = Path(__file__).resolve().parents[1]
+    roots = [r["root"] for r in read_roots(root / "data/lexicon/tr_roots_prototype.tsv")]
+    with open(root / "data/probes/tr_minimal_pairs_prototype.jsonl", encoding="utf-8") as f:
+        stored = [json.loads(line) for line in f]
+    assert generate_prototype(roots, seed=0) == stored

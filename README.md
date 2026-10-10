@@ -45,6 +45,7 @@ Gereksinimler: Python 3.11, [uv](https://docs.astral.sh/uv/), CUDA destekli bir 
 uv sync                                          # ortamı kur
 uv run pytest -q                                 # testler
 uv run python -m scripts.prepare_flores          # FLORES-200'ü indir ve doğrula
+uv run python -m scripts.make_probes             # minimal çiftleri üret, BLiMP'i indir
 uv run python -m scripts.run_eval --model qwen2.5-1.5b --arm fp16 --task flores_bpb
 uv run python -m scripts.run_eval --model llama-3.2-1b --arm fp16 --task tr_pairs_proto
 ```

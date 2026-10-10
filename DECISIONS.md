@@ -55,3 +55,25 @@ Protokolden ([`docs/PROTOCOL.md`](docs/PROTOCOL.md)) sapmalar ve protokolün aç
 - **Neden:** İki farklı aile; ikisi de seçim ölçütünü (≥ %60) geçti; ikisinin de BF16 referansı tek bir 4 GB GPU'da çalışıyor (tepe VRAM 3.08 / 2.45 GB).
 - **Kapsam sapması:** Llama-3.2-1B ~1.2B parametreyle PROTOCOL §2'deki 1.5–3B aralığının biraz altında. Bulgular 1–1.5B ölçeği için geçerli olacak; raporda sınırlılık olarak belirtilecek.
 - **Tavan riski:** Referans çift doğruluğu tavana yakın. Nicemleme düşüşleri yine ölçülebilir, ancak ek sayısı kademeleri arasındaki farkı görmek zorlaşabilir. Tam çift setinde daha zor çift türleri değerlendirilecek; eklenirse ayrıca kaydedilecek.
+
+## 2026-10-11
+
+### D-011: Minimal çiftlerde token sayısı etkisi (ölçüldü)
+- **Soru:** Yanlış form tokenizer tarafından genellikle daha fazla token'a bölünüyor; yüksek referans doğruluğu (%98+) yalnızca bu uzunluk farkından mı kaynaklanıyor?
+- **Ölçüm** (384 prototip çift, BF16): Doğru ve yanlış formun token sayısı **eşit** olan çiftlerde doğruluk Qwen2.5-1.5B'de %99.3 (267 çift), Llama-3.2-1B'de %98.8 (163 çift). Yanlış formun daha uzun olduğu çiftlerde ise %96.4 ve %98.6.
+- **Sonuç:** Yüksek doğruluk token uzunluğu farkından kaynaklanmıyor; modeller ünlü uyumunu gerçekten ayırt ediyor. Token başına ortalama log-olasılıkla karşılaştırma, yanlış formun daha uzun olduğu çiftlerde doğruluğu %52–62'ye düşürüyor (fazladan token'lar ortalamayı seyreltiyor). Bu da toplam log-olasılığın birincil ölçüt olarak seçilmesini destekliyor.
+- **Etki:** Üretim yöntemi değiştirilmedi. Analizde token farkı (`n_tokens_bad − n_tokens_good`) ikincil bir kırılım olarak raporlanacak; tavan etkisi PROTOCOL §11'de geçerlilik tehdidi olarak kayıtlı.
+
+### D-012: Tam minimal çift seti
+- **Kök sözlüğü:** 162 düzenli isim (`data/lexicon/tr_roots.tsv`); son ünlüye göre 17–23 kök, 1–3 heceli. Ünlü uyumu istisnası olan alıntılar (saat, kalp, rol, gol, kontrol, metal, alkol, hal, sembol vb.) dışarıda bırakıldı.
+- **Ek dizileri:** Her kademe için birden fazla dizi: 1 ek (çoğul, bulunma, ayrılma), 2 ek (çoğul + iyelik/bulunma/ayrılma/yönelme/ilgi), 3 ek (çoğul + 1. çoğul iyelik + bulunma/ayrılma/yönelme/ilgi), 4 ek (çoğul + 1. çoğul iyelik + bulunma/ilgi + -ki). Her dizi çoğulla ya da ünsüzle başlayan bir hal ekiyle başladığından ünsüz yumuşaması ve ünlü düşmesi hiç tetiklenmez; bu yüzden ilgili kökleri ayrıca etiketlemeye gerek kalmadı.
+- **Taşıyıcı cümleler:** Dizinin son ekinin işlevine göre 5'er şablon (ör. ayrılma için `Bu ses ___ geliyordu.`), toplam 35 şablon.
+- **Boyut:** Kademe başına 1200 çift (toplam 4800), kategoriler arasında eşit paylaştırılmış; ihlal edilen ek tohuma göre seçiliyor ve `violated` / `violated_pos` alanlarında kayıtlı.
+- **İngilizce kontrol seti:** BLiMP'in altı özne-fiil uyumu alt kümesi (düzenli/düzensiz çoğul ×2, ilişkisel isim ve ilgi cümleciği çeldiricili), commit `3e56b06` sabitlendi. Altı dosyada toplam 6000 çift var; aynı çift ("The children smile." / "The child smile.") iki alt kümede birden geçtiği için yalnızca ilk geçtiği yerde tutuldu: 5999 çift.
+- Hash'ler: `data/probes/VERSION.md`.
+
+### D-013: Minimal çiftlerin insan doğrulaması
+- **Kim / nasıl:** Türkçe'yi ana dili olarak konuşan proje yürütücüsü; kök listesinin tamamı ve kademe başına eşit sayıda rastgele seçilmiş %10'luk çift örneklemi (480 çift, tohum 0). Doldurulmuş tablolar: `data/probes/validation/`.
+- **Ölçütler:** (1) doğru cümle dilbilgisel mi; (2) yanlış cümle yalnızca tek bir ünlü uyumu hatası mı içeriyor ve tesadüfen geçerli bir kelime oluşmamış mı. Anlamsal tuhaflık ölçüt değildir: çiftin iki üyesi aynı bağlamı paylaştığından karşılaştırmayı etkilemez (BLiMP'te de benzer cümleler bulunur).
+- **Otomatik kontrol:** 4800 çiftin tamamında doğru ve yanlış cümlenin yalnızca bir harfte ayrıldığı ve bu harfin kalın/ince ünlü karşıtı olduğu programla doğrulandı.
+- **Sonuç:** 162 kökün tamamı uygun; 480 çiftte 0 hata (%0, eşik %2). `uv run python -m scripts.validation check` → GEÇTİ.

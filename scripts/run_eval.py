@@ -11,7 +11,7 @@ import json
 import time
 from pathlib import Path
 
-from src.data.tr_minimal_pairs import generate, read_roots
+from src.data.tr_minimal_pairs import generate_prototype, read_roots
 from src.eval.bpb import bpb, corpus_bpb
 from src.eval.minimal_pairs import accuracy, score_pairs
 from src.eval.models import load
@@ -39,14 +39,15 @@ def run_flores(model, tok, batch_size, limit):
     for lang in FLORES:
         lr = [r for r in rows if r["lang"] == lang]
         summary[lang] = {"n": len(lr), "bpb": corpus_bpb(lr),
-                         "fertility": sum(r["n_tokens"] for r in lr) / sum(r["n_words"] for r in lr)}
+                         "fertility": sum(r["n_tokens"] for r in lr)
+                         / sum(r["n_words"] for r in lr)}
     return rows, summary
 
 
 def run_tr_pairs_proto(model, tok, batch_size, limit, seed):
     if not PROTO_PAIRS.exists():
         roots = [r["root"] for r in read_roots(PROTO_ROOTS)]
-        write_jsonl(PROTO_PAIRS, generate(roots, seed=seed))
+        write_jsonl(PROTO_PAIRS, generate_prototype(roots, seed=seed))
     pairs = list(read_jsonl(PROTO_PAIRS))[:limit]
     rows = [{"task": "tr_pairs_proto", **r} for r in score_pairs(model, tok, pairs, batch_size)]
     summary = {"all": {"n": len(rows), "acc": accuracy(rows)}}
@@ -57,7 +58,8 @@ def run_tr_pairs_proto(model, tok, batch_size, limit, seed):
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True)
     ap.add_argument("--arm", default="fp16")
     ap.add_argument("--task", required=True, choices=["flores_bpb", "tr_pairs_proto"])

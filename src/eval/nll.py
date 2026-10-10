@@ -64,7 +64,9 @@ def score_ids(model, ids_batch: list[list[int]], pad_id: int) -> list[SentenceSc
 def score_texts(model, tokenizer, texts: list[str], batch_size: int = 8,
                 add_prefix: bool = True) -> list[SentenceScore]:
     ids = encode(tokenizer, texts, add_prefix=add_prefix)
-    pad_id = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else prefix_token_id(tokenizer)
+    pad_id = tokenizer.pad_token_id
+    if pad_id is None:
+        pad_id = prefix_token_id(tokenizer)
     out: list[SentenceScore] = []
     for start in range(0, len(ids), batch_size):
         out.extend(score_ids(model, ids[start : start + batch_size], pad_id))

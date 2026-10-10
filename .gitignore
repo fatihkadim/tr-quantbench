@@ -18,6 +18,7 @@ models/
 # Ham ve türetilmiş veri (indirme betikleriyle yeniden üretilir)
 data/flores/raw/
 data/flores/processed/
+data/probes/raw/
 data/human_eval/key.json
 
 # Yerel çıktılar ve gizli bilgiler

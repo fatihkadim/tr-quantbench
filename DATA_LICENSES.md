@@ -6,7 +6,7 @@
 |---|---|---|---|---|
 | FLORES-200 devtest | Paralel test seti | CC-BY-SA 4.0 ([facebookresearch/flores](https://github.com/facebookresearch/flores) README, "Licenses") | 2026-10-08 | NLLB Team ve ark. (2022), *No Language Left Behind: Scaling Human-Centered Machine Translation*, arXiv:2207.04672 |
 | Vikipedi (TR/EN) | Kalibrasyon (planlanan) | _kullanım öncesi doğrulanacak_ | | |
-| BLiMP | İngilizce kontrol seti (aday) | _kullanım öncesi doğrulanacak_ | | |
+| BLiMP (6 özne-fiil uyumu alt kümesi) | İngilizce kontrol seti | CC-BY 4.0 ([alexwarstadt/blimp](https://github.com/alexwarstadt/blimp) README, "License") | 2026-10-11 | Warstadt ve ark. (2020), *BLiMP: The Benchmark of Linguistic Minimal Pairs for English*, TACL 8 |
 | TR-QuantBench minimal çiftleri | Morfoloji probları | MIT | | Bu çalışma |
 
 ## Modeller
