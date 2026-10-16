@@ -1,0 +1,131 @@
+{
+  "args": {
+    "model": "qwen2.5-1.5b",
+    "arm": "fp16",
+    "task": "tr_pairs",
+    "limit": null,
+    "batch_size": null,
+    "out_suffix": ""
+  },
+  "batch_size": 1,
+  "arm_config": {
+    "method": "none",
+    "bits": 16,
+    "where": "local_or_colab"
+  },
+  "reference_dtype": "bfloat16",
+  "quantization": null,
+  "summary": {
+    "all": {
+      "n": 4800,
+      "acc": 0.9647916666666667
+    },
+    "n_suffix=1": {
+      "n": 1200,
+      "acc": 0.9291666666666667
+    },
+    "n_suffix=2": {
+      "n": 1200,
+      "acc": 0.9733333333333334
+    },
+    "n_suffix=3": {
+      "n": 1200,
+      "acc": 0.99
+    },
+    "n_suffix=4": {
+      "n": 1200,
+      "acc": 0.9666666666666667
+    },
+    "category=abl": {
+      "n": 400,
+      "acc": 0.895
+    },
+    "category=loc": {
+      "n": 400,
+      "acc": 0.905
+    },
+    "category=plural": {
+      "n": 400,
+      "acc": 0.9875
+    },
+    "category=plural+abl": {
+      "n": 240,
+      "acc": 1.0
+    },
+    "category=plural+dat": {
+      "n": 240,
+      "acc": 0.9916666666666667
+    },
+    "category=plural+gen": {
+      "n": 240,
+      "acc": 0.9666666666666667
+    },
+    "category=plural+loc": {
+      "n": 240,
+      "acc": 1.0
+    },
+    "category=plural+poss1pl": {
+      "n": 240,
+      "acc": 0.9083333333333333
+    },
+    "category=plural+poss1pl+abl": {
+      "n": 300,
+      "acc": 1.0
+    },
+    "category=plural+poss1pl+dat": {
+      "n": 300,
+      "acc": 0.9833333333333333
+    },
+    "category=plural+poss1pl+gen": {
+      "n": 300,
+      "acc": 0.9766666666666667
+    },
+    "category=plural+poss1pl+gen+ki": {
+      "n": 600,
+      "acc": 0.97
+    },
+    "category=plural+poss1pl+loc": {
+      "n": 300,
+      "acc": 1.0
+    },
+    "category=plural+poss1pl+loc+ki": {
+      "n": 600,
+      "acc": 0.9633333333333334
+    }
+  },
+  "seconds": 508.1,
+  "load_seconds": 8.2,
+  "eval_seconds": 499.8,
+  "tokens_per_s": 224.3,
+  "max_vram_gb": 2.91,
+  "memory_footprint_gb": 2.88,
+  "env": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.19.0",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "datasets": null,
+      "huggingface-hub": "1.33.0",
+      "numpy": "2.4.6"
+    },
+    "gpu": {
+      "cuda_available": true,
+      "cuda": "12.8",
+      "cudnn": 91900,
+      "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "gpu_mem_gb": 4.0,
+      "bf16_supported": true
+    },
+    "config_sha256": {
+      "configs/models.yaml": "b8b76df360cda44b3c69e30c6147d89dcad81d1ef89b4c69853d8e76e68b558d",
+      "configs/arms.yaml": "5881d6f8917ff67eaa278a80678fe1a382ae37f080a721fbbcbe6edf758c3232",
+      "configs/eval.yaml": "ed5a85f7d350dd872f67aedf81f8987113b8f537cd9e9f05d2b56cd7b0ff5366"
+    },
+    "data_sha256": {
+      "data/probes/tr_minimal_pairs.jsonl": "a238982563b4e574095c87f3d61526b55536ab7413f8a24be5e1357ab24e6128"
+    }
+  }
+}

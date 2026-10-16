@@ -1,0 +1,1148 @@
+{
+  "bootstrap": {
+    "n_resamples": 10000,
+    "seed": 0,
+    "ci": 0.95
+  },
+  "reference_arm": "fp16",
+  "sources": {
+    "results/raw/llama-3.2-1b__bnb_int8__en_pairs.jsonl": "0381ad83f2e55c7b954269b8bcdac1eb009328700c923f2774ced1689a99eea7",
+    "results/raw/llama-3.2-1b__bnb_int8__flores_bpb.jsonl": "d2173cb17612a7d4ee5e7f4cf3cebfa5e8ad32d73a53a6ab05c7a4fd273f25e0",
+    "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl": "ef6694762ef1df64c10b0a8f322c34fef7dfa28889e91e3dabe95de135c33249",
+    "results/raw/llama-3.2-1b__bnb_nf4__en_pairs.jsonl": "20e1c1ecc3e9ee55e92bce75991d0600fd5fde51f2611014afc68c8996c0d93c",
+    "results/raw/llama-3.2-1b__bnb_nf4__flores_bpb.jsonl": "847288c9ce990050352f47a3e02fa2ffdc34b5f79a59af01f8f26d390f2fc7c8",
+    "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl": "36460b05087d6ef108c7dc04e09cd10ea5cd5d10cae1e1fc447d41337e2a3282",
+    "results/raw/llama-3.2-1b__fp16__en_pairs.jsonl": "245998756a908e912b9632281b632978e4ae1be018a9434ce0bbc3f6d53248f9",
+    "results/raw/llama-3.2-1b__fp16__flores_bpb.jsonl": "84edf19c871b1919bee77188738fb3a7a3f075fe2e0b8ca13e904341e702a982",
+    "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl": "0d27ea90a2492a17b61ff03e13e9721966b5df407d35f413d294a74b03bd1ddf",
+    "results/raw/qwen2.5-1.5b__bnb_int8__en_pairs.jsonl": "a7cd4dbde0d2a7b61a24a2db9feda3ffa6424777afb53c8380e2a82700112d3f",
+    "results/raw/qwen2.5-1.5b__bnb_int8__flores_bpb.jsonl": "87fe94867940ae153a2ca4c316522ba8c107478e13e7d60155c07e2f49825d32",
+    "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl": "d46fa154d7f4968ebc8ec99b00f91b04cccb49c81a7a3538623913585501e559",
+    "results/raw/qwen2.5-1.5b__bnb_nf4__en_pairs.jsonl": "6d3a8a007a79db9b6c2f3f3efecd14480c1de9742ebfcc9c82c66e3277d019bd",
+    "results/raw/qwen2.5-1.5b__bnb_nf4__flores_bpb.jsonl": "d3f12eed5ec149f3b039e5424af6afa45cee8e2eb80f5b2702655f39fd9c0c23",
+    "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl": "7cca08950c383f1d29221e55bcdd024324a15278323da09194c4f9ed714004a5",
+    "results/raw/qwen2.5-1.5b__fp16__en_pairs.jsonl": "5ba1cd38c7efed96f5c9569602ca966a69fb02323f71244d6bbc50197d32b060",
+    "results/raw/qwen2.5-1.5b__fp16__flores_bpb.jsonl": "49fcc987947d73ddcc8e6713fb8f9d1866117b6f16a1b50daf86fc881779fe01",
+    "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl": "39c702c7d78b53eaaa9fc6c7ae6350c6f31c6263de0f56aa0b529d85645da7a7"
+  },
+  "flores": [
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__flores_bpb.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.4018311979500468,
+        "lo": 1.3863928271975607,
+        "hi": 1.4174344200469302
+      },
+      "bpb_tr": {
+        "value": 1.4018311979500468,
+        "lo": 1.3863928271975607,
+        "hi": 1.4174344200469302
+      },
+      "dbpb_rel_tr": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "bpb_ref_en": {
+        "value": 0.9907514582572542,
+        "lo": 0.9788030366957865,
+        "hi": 1.0027593289017822
+      },
+      "bpb_en": {
+        "value": 0.9907514582572542,
+        "lo": 0.9788030366957865,
+        "hi": 1.0027593289017822
+      },
+      "dbpb_rel_en": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "did": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__flores_bpb.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.4018311979500468,
+        "lo": 1.3863928271975607,
+        "hi": 1.4174344200469302
+      },
+      "bpb_tr": {
+        "value": 1.4108179455877163,
+        "lo": 1.395280446935176,
+        "hi": 1.4265771379289995
+      },
+      "dbpb_rel_tr": {
+        "value": 0.006410720242787552,
+        "lo": 0.00566661768102576,
+        "hi": 0.00718018383323315
+      },
+      "bpb_ref_en": {
+        "value": 0.9907514582572542,
+        "lo": 0.9788030366957865,
+        "hi": 1.0027593289017822
+      },
+      "bpb_en": {
+        "value": 0.9932312343542562,
+        "lo": 0.981266067123434,
+        "hi": 1.0053597899325275
+      },
+      "dbpb_rel_en": {
+        "value": 0.002502924498707242,
+        "lo": 0.0018856395389566282,
+        "hi": 0.003142879976329849
+      },
+      "did": {
+        "value": 0.00390779574408031,
+        "lo": 0.002907608888341553,
+        "hi": 0.00488239759944671
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__flores_bpb.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.4018311979500468,
+        "lo": 1.3863928271975607,
+        "hi": 1.4174344200469302
+      },
+      "bpb_tr": {
+        "value": 1.4773944899845237,
+        "lo": 1.4614397919451576,
+        "hi": 1.493470609143862
+      },
+      "dbpb_rel_tr": {
+        "value": 0.05390327462035091,
+        "lo": 0.05173439593555665,
+        "hi": 0.056040750354943054
+      },
+      "bpb_ref_en": {
+        "value": 0.9907514582572542,
+        "lo": 0.9788030366957865,
+        "hi": 1.0027593289017822
+      },
+      "bpb_en": {
+        "value": 1.0093388655440207,
+        "lo": 0.9971094630175997,
+        "hi": 1.0215316833245989
+      },
+      "dbpb_rel_en": {
+        "value": 0.018760918423942636,
+        "lo": 0.016887054904415333,
+        "hi": 0.020702417937312048
+      },
+      "did": {
+        "value": 0.03514235619640828,
+        "lo": 0.03242415613859955,
+        "hi": 0.03774653626570126
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__flores_bpb.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.5779741941396517,
+        "lo": 1.5613331748319093,
+        "hi": 1.5947091092436119
+      },
+      "bpb_tr": {
+        "value": 1.5779741941396517,
+        "lo": 1.5613331748319093,
+        "hi": 1.5947091092436119
+      },
+      "dbpb_rel_tr": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "bpb_ref_en": {
+        "value": 0.9989573605517148,
+        "lo": 0.9861179650234765,
+        "hi": 1.0116491614455976
+      },
+      "bpb_en": {
+        "value": 0.9989573605517148,
+        "lo": 0.9861179650234765,
+        "hi": 1.0116491614455976
+      },
+      "dbpb_rel_en": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "did": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__flores_bpb.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.5779741941396517,
+        "lo": 1.5613331748319093,
+        "hi": 1.5947091092436119
+      },
+      "bpb_tr": {
+        "value": 1.5837320732679876,
+        "lo": 1.5671535480086471,
+        "hi": 1.600480629868409
+      },
+      "dbpb_rel_tr": {
+        "value": 0.003648905761399507,
+        "lo": 0.0029558267049038184,
+        "hi": 0.0043263438859616355
+      },
+      "bpb_ref_en": {
+        "value": 0.9989573605517148,
+        "lo": 0.9861179650234765,
+        "hi": 1.0116491614455976
+      },
+      "bpb_en": {
+        "value": 0.9981121731868935,
+        "lo": 0.9853587092289111,
+        "hi": 1.010749330956132
+      },
+      "dbpb_rel_en": {
+        "value": -0.0008460695102687068,
+        "lo": -0.0014600802245697422,
+        "hi": -0.00021982601551363392
+      },
+      "did": {
+        "value": 0.004494975271668214,
+        "lo": 0.003580248620964042,
+        "hi": 0.005402875363382874
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__flores_bpb.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__flores_bpb.jsonl",
+      "n": 1012,
+      "bpb_ref_tr": {
+        "value": 1.5779741941396517,
+        "lo": 1.5613331748319093,
+        "hi": 1.5947091092436119
+      },
+      "bpb_tr": {
+        "value": 1.6936041581826256,
+        "lo": 1.6763221140907458,
+        "hi": 1.7114223405417126
+      },
+      "dbpb_rel_tr": {
+        "value": 0.0732774746712623,
+        "lo": 0.07082661438630064,
+        "hi": 0.07577598078547491
+      },
+      "bpb_ref_en": {
+        "value": 0.9989573605517148,
+        "lo": 0.9861179650234765,
+        "hi": 1.0116491614455976
+      },
+      "bpb_en": {
+        "value": 1.0656406376009793,
+        "lo": 1.0521949057023579,
+        "hi": 1.0788354016652226
+      },
+      "dbpb_rel_en": {
+        "value": 0.06675287623130972,
+        "lo": 0.06437454211420574,
+        "hi": 0.06908842503555923
+      },
+      "did": {
+        "value": 0.006524598439952581,
+        "lo": 0.0031479117668270335,
+        "hi": 0.00998903541088671
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9604166666666667,
+        "lo": 0.9547916666666667,
+        "hi": 0.9658333333333333
+      },
+      "acc": {
+        "value": 0.9604166666666667,
+        "lo": 0.9547916666666667,
+        "hi": 0.9658333333333333
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9558333333333333,
+        "lo": 0.9441666666666667,
+        "hi": 0.9675
+      },
+      "acc": {
+        "value": 0.9558333333333333,
+        "lo": 0.9441666666666667,
+        "hi": 0.9675
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9808333333333333,
+        "lo": 0.9725,
+        "hi": 0.9883333333333333
+      },
+      "acc": {
+        "value": 0.9808333333333333,
+        "lo": 0.9725,
+        "hi": 0.9883333333333333
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9891666666666666,
+        "lo": 0.9825,
+        "hi": 0.9941666666666666
+      },
+      "acc": {
+        "value": 0.9891666666666666,
+        "lo": 0.9825,
+        "hi": 0.9941666666666666
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9158333333333334,
+        "lo": 0.9,
+        "hi": 0.9316666666666666
+      },
+      "acc": {
+        "value": 0.9158333333333334,
+        "lo": 0.9,
+        "hi": 0.9316666666666666
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9604166666666667,
+        "lo": 0.9547916666666667,
+        "hi": 0.9658333333333333
+      },
+      "acc": {
+        "value": 0.961875,
+        "lo": 0.9564583333333333,
+        "hi": 0.9670885416666666
+      },
+      "dacc": {
+        "value": -0.0014583333333333393,
+        "lo": -0.0050000000000000044,
+        "hi": 0.002083333333333326
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9558333333333333,
+        "lo": 0.9441666666666667,
+        "hi": 0.9675
+      },
+      "acc": {
+        "value": 0.96,
+        "lo": 0.9491666666666667,
+        "hi": 0.9708333333333333
+      },
+      "dacc": {
+        "value": -0.004166666666666652,
+        "lo": -0.012500000000000067,
+        "hi": 0.004166666666666652
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9808333333333333,
+        "lo": 0.9725,
+        "hi": 0.9883333333333333
+      },
+      "acc": {
+        "value": 0.98,
+        "lo": 0.9716666666666667,
+        "hi": 0.9875
+      },
+      "dacc": {
+        "value": 0.0008333333333333526,
+        "lo": -0.0050000000000000044,
+        "hi": 0.00666666666666671
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9891666666666666,
+        "lo": 0.9825,
+        "hi": 0.9941666666666666
+      },
+      "acc": {
+        "value": 0.985,
+        "lo": 0.9775,
+        "hi": 0.9916666666666667
+      },
+      "dacc": {
+        "value": 0.004166666666666652,
+        "lo": 0.0008333333333333526,
+        "hi": 0.008333333333333304
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9158333333333334,
+        "lo": 0.9,
+        "hi": 0.9316666666666666
+      },
+      "acc": {
+        "value": 0.9225,
+        "lo": 0.9075,
+        "hi": 0.9375
+      },
+      "dacc": {
+        "value": -0.006666666666666599,
+        "lo": -0.015833333333333255,
+        "hi": 0.0016666666666667052
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9604166666666667,
+        "lo": 0.9547916666666667,
+        "hi": 0.9658333333333333
+      },
+      "acc": {
+        "value": 0.955,
+        "lo": 0.9489583333333333,
+        "hi": 0.9608333333333333
+      },
+      "dacc": {
+        "value": 0.005416666666666736,
+        "lo": 0.0006249999999999867,
+        "hi": 0.01041666666666663
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9558333333333333,
+        "lo": 0.9441666666666667,
+        "hi": 0.9675
+      },
+      "acc": {
+        "value": 0.95,
+        "lo": 0.9375,
+        "hi": 0.9616666666666667
+      },
+      "dacc": {
+        "value": 0.005833333333333357,
+        "lo": -0.005833333333333357,
+        "hi": 0.018333333333333313
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9808333333333333,
+        "lo": 0.9725,
+        "hi": 0.9883333333333333
+      },
+      "acc": {
+        "value": 0.9708333333333333,
+        "lo": 0.9608333333333333,
+        "hi": 0.98
+      },
+      "dacc": {
+        "value": 0.010000000000000009,
+        "lo": 0.0016666666666667052,
+        "hi": 0.018333333333333313
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9891666666666666,
+        "lo": 0.9825,
+        "hi": 0.9941666666666666
+      },
+      "acc": {
+        "value": 0.985,
+        "lo": 0.9775,
+        "hi": 0.9916666666666667
+      },
+      "dacc": {
+        "value": 0.004166666666666652,
+        "lo": -0.0016666666666667052,
+        "hi": 0.010000000000000009
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9158333333333334,
+        "lo": 0.9,
+        "hi": 0.9316666666666666
+      },
+      "acc": {
+        "value": 0.9141666666666667,
+        "lo": 0.8983333333333333,
+        "hi": 0.93
+      },
+      "dacc": {
+        "value": 0.0016666666666667052,
+        "lo": -0.009166666666666656,
+        "hi": 0.012500000000000067
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "fp16",
+      "source": "results/raw/llama-3.2-1b__fp16__en_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8521420236706118,
+        "lo": 0.8431405234205701,
+        "hi": 0.8611435239206534
+      },
+      "acc": {
+        "value": 0.8521420236706118,
+        "lo": 0.8431405234205701,
+        "hi": 0.8611435239206534
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_int8",
+      "source": "results/raw/llama-3.2-1b__bnb_int8__en_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8521420236706118,
+        "lo": 0.8431405234205701,
+        "hi": 0.8611435239206534
+      },
+      "acc": {
+        "value": 0.8499749958326388,
+        "lo": 0.8409734955825972,
+        "hi": 0.8589764960826805
+      },
+      "dacc": {
+        "value": 0.002167027837972957,
+        "lo": -0.0028338056342723794,
+        "hi": 0.007167861310218293
+      }
+    },
+    {
+      "model": "llama-3.2-1b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/llama-3.2-1b__bnb_nf4__en_pairs.jsonl",
+      "reference": "results/raw/llama-3.2-1b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8521420236706118,
+        "lo": 0.8431405234205701,
+        "hi": 0.8611435239206534
+      },
+      "acc": {
+        "value": 0.8436406067677946,
+        "lo": 0.8344724120686781,
+        "hi": 0.8528088014669112
+      },
+      "dacc": {
+        "value": 0.008501416902817138,
+        "lo": 0.0026671111851974683,
+        "hi": 0.014502417069511608
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9647916666666667,
+        "lo": 0.9595833333333333,
+        "hi": 0.97
+      },
+      "acc": {
+        "value": 0.9647916666666667,
+        "lo": 0.9595833333333333,
+        "hi": 0.97
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9291666666666667,
+        "lo": 0.915,
+        "hi": 0.9433333333333334
+      },
+      "acc": {
+        "value": 0.9291666666666667,
+        "lo": 0.915,
+        "hi": 0.9433333333333334
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9733333333333334,
+        "lo": 0.9641666666666666,
+        "hi": 0.9825
+      },
+      "acc": {
+        "value": 0.9733333333333334,
+        "lo": 0.9641666666666666,
+        "hi": 0.9825
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.99,
+        "lo": 0.9841666666666666,
+        "hi": 0.995
+      },
+      "acc": {
+        "value": 0.99,
+        "lo": 0.9841666666666666,
+        "hi": 0.995
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9666666666666667,
+        "lo": 0.9566666666666667,
+        "hi": 0.9766666666666667
+      },
+      "acc": {
+        "value": 0.9666666666666667,
+        "lo": 0.9566666666666667,
+        "hi": 0.9766666666666667
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9647916666666667,
+        "lo": 0.9595833333333333,
+        "hi": 0.97
+      },
+      "acc": {
+        "value": 0.9633333333333334,
+        "lo": 0.9579166666666666,
+        "hi": 0.9685416666666666
+      },
+      "dacc": {
+        "value": 0.0014583333333333393,
+        "lo": -0.00187499999999996,
+        "hi": 0.0047916666666666385
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9291666666666667,
+        "lo": 0.915,
+        "hi": 0.9433333333333334
+      },
+      "acc": {
+        "value": 0.9275,
+        "lo": 0.9125,
+        "hi": 0.9416666666666667
+      },
+      "dacc": {
+        "value": 0.0016666666666667052,
+        "lo": -0.007499999999999951,
+        "hi": 0.010833333333333361
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9733333333333334,
+        "lo": 0.9641666666666666,
+        "hi": 0.9825
+      },
+      "acc": {
+        "value": 0.9725,
+        "lo": 0.9625,
+        "hi": 0.9808333333333333
+      },
+      "dacc": {
+        "value": 0.0008333333333333526,
+        "lo": -0.0050000000000000044,
+        "hi": 0.00666666666666671
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.99,
+        "lo": 0.9841666666666666,
+        "hi": 0.995
+      },
+      "acc": {
+        "value": 0.9866666666666667,
+        "lo": 0.98,
+        "hi": 0.9925
+      },
+      "dacc": {
+        "value": 0.0033333333333332993,
+        "lo": -0.0008333333333333526,
+        "hi": 0.008333333333333304
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9666666666666667,
+        "lo": 0.9566666666666667,
+        "hi": 0.9766666666666667
+      },
+      "acc": {
+        "value": 0.9666666666666667,
+        "lo": 0.9566666666666667,
+        "hi": 0.9766666666666667
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": -0.005833333333333357,
+        "hi": 0.005833333333333357
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "all",
+      "n": 4800,
+      "acc_ref": {
+        "value": 0.9647916666666667,
+        "lo": 0.9595833333333333,
+        "hi": 0.97
+      },
+      "acc": {
+        "value": 0.9547916666666667,
+        "lo": 0.94875,
+        "hi": 0.960625
+      },
+      "dacc": {
+        "value": 0.010000000000000009,
+        "lo": 0.004994791666666719,
+        "hi": 0.015000000000000013
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=1",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9291666666666667,
+        "lo": 0.915,
+        "hi": 0.9433333333333334
+      },
+      "acc": {
+        "value": 0.9108333333333334,
+        "lo": 0.8941666666666667,
+        "hi": 0.9266666666666666
+      },
+      "dacc": {
+        "value": 0.018333333333333313,
+        "lo": 0.004166666666666652,
+        "hi": 0.033333333333333326
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=2",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9733333333333334,
+        "lo": 0.9641666666666666,
+        "hi": 0.9825
+      },
+      "acc": {
+        "value": 0.97,
+        "lo": 0.96,
+        "hi": 0.9791666666666666
+      },
+      "dacc": {
+        "value": 0.0033333333333334103,
+        "lo": -0.0033333333333332993,
+        "hi": 0.010000000000000009
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=3",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.99,
+        "lo": 0.9841666666666666,
+        "hi": 0.995
+      },
+      "acc": {
+        "value": 0.9866666666666667,
+        "lo": 0.98,
+        "hi": 0.9925
+      },
+      "dacc": {
+        "value": 0.0033333333333332993,
+        "lo": -0.0025000000000000577,
+        "hi": 0.009166666666666767
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__tr_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__tr_pairs.jsonl",
+      "task": "tr_pairs",
+      "subset": "n_suffix=4",
+      "n": 1200,
+      "acc_ref": {
+        "value": 0.9666666666666667,
+        "lo": 0.9566666666666667,
+        "hi": 0.9766666666666667
+      },
+      "acc": {
+        "value": 0.9516666666666667,
+        "lo": 0.9391666666666667,
+        "hi": 0.9633333333333334
+      },
+      "dacc": {
+        "value": 0.015000000000000013,
+        "lo": 0.0033333333333334103,
+        "hi": 0.026666666666666616
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "fp16",
+      "source": "results/raw/qwen2.5-1.5b__fp16__en_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8751458576429405,
+        "lo": 0.8666444407401234,
+        "hi": 0.8836472745457576
+      },
+      "acc": {
+        "value": 0.8751458576429405,
+        "lo": 0.8666444407401234,
+        "hi": 0.8836472745457576
+      },
+      "dacc": {
+        "value": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_int8",
+      "source": "results/raw/qwen2.5-1.5b__bnb_int8__en_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8751458576429405,
+        "lo": 0.8666444407401234,
+        "hi": 0.8836472745457576
+      },
+      "acc": {
+        "value": 0.8721453575595932,
+        "lo": 0.8633105517586265,
+        "hi": 0.8806467744624104
+      },
+      "dacc": {
+        "value": 0.0030005000833472906,
+        "lo": -0.0015002500416735343,
+        "hi": 0.007501250208368115
+      }
+    },
+    {
+      "model": "qwen2.5-1.5b",
+      "arm": "bnb_nf4",
+      "source": "results/raw/qwen2.5-1.5b__bnb_nf4__en_pairs.jsonl",
+      "reference": "results/raw/qwen2.5-1.5b__fp16__en_pairs.jsonl",
+      "task": "en_pairs",
+      "subset": "all",
+      "n": 5999,
+      "acc_ref": {
+        "value": 0.8751458576429405,
+        "lo": 0.8666444407401234,
+        "hi": 0.8836472745457576
+      },
+      "acc": {
+        "value": 0.8793132188698116,
+        "lo": 0.8711451908651442,
+        "hi": 0.887481246874479
+      },
+      "dacc": {
+        "value": -0.0041673612268711135,
+        "lo": -0.010339223203867326,
+        "hi": 0.0020003333888981567
+      }
+    }
+  ]
+}

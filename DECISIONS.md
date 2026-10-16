@@ -77,3 +77,15 @@ Protokolden ([`docs/PROTOCOL.md`](docs/PROTOCOL.md)) sapmalar ve protokolün aç
 - **Ölçütler:** (1) doğru cümle dilbilgisel mi; (2) yanlış cümle yalnızca tek bir ünlü uyumu hatası mı içeriyor ve tesadüfen geçerli bir kelime oluşmamış mı. Anlamsal tuhaflık ölçüt değildir: çiftin iki üyesi aynı bağlamı paylaştığından karşılaştırmayı etkilemez (BLiMP'te de benzer cümleler bulunur).
 - **Otomatik kontrol:** 4800 çiftin tamamında doğru ve yanlış cümlenin yalnızca bir harfte ayrıldığı ve bu harfin kalın/ince ünlü karşıtı olduğu programla doğrulandı.
 - **Sonuç:** 162 kökün tamamı uygun; 480 çiftte 0 hata (%0, eşik %2). `uv run python -m scripts.validation check` → GEÇTİ.
+
+## 2026-10-13
+
+### D-014: bitsandbytes kolları
+- **Karar:** `bnb_int8` ve `bnb_nf4` kolları `bitsandbytes` 0.50.2 (resmi Windows/CUDA tekerleği) ve transformers'ın `BitsAndBytesConfig` arayüzüyle yüklenir. Nicemlenmiş modeli yükleme sırasında GPU'ya yerleştirmek (`device_map`) için `accelerate` de gerekir. Ayarlar `configs/arms.yaml`'dadır:
+  - `bnb_int8`: LLM.int8, aykırı değer eşiği `llm_int8_threshold: 6.0`. Bu kütüphanenin varsayılan değeridir; sürümler arasında değişmesine karşı yapılandırmaya açıkça yazıldı.
+  - `bnb_nf4`: NF4, çift nicemleme açık, hesaplama veri tipi BF16.
+- **Nicemlenmeyen katmanlar:** Gömme, normalizasyon katmanları ve `lm_head` referans veri tipinde (BF16) kalır. `lm_head` transformers'ın varsayılan davranışıyla nicemlenmez; iki modelde de gömme katmanıyla ortak ağırlıktır (`tie_word_embeddings: true`). Nicemlenen doğrusal katmanlar Qwen2.5-1.5B'de 196 (28 katman × 7), Llama-3.2-1B'de 112 (16 × 7). Sayılar her çalıştırmanın `.meta.json` dosyasında (`quantization`) kayıtlıdır.
+- **INT8 hesaplama notu:** bitsandbytes, LLM.int8 matris çarpımında BF16 girdileri FP16'ya çevirir (kütüphane uyarısı). Bu, yöntemin kendi uygulamasıdır; kol bu haliyle değerlendirilir.
+- **Belirlenimlilik:** Duman testinde 3 kol × 2 model × 3 görev (10'ar öğe) ikişer kez çalıştırıldı; 18 çiftin tamamı bit düzeyinde aynı sonucu verdi.
+- **Etki:** `configs/arms.yaml` değiştiği için `fp16` sonuçları güncel yapılandırma hash'leriyle yeniden üretildi. Yeni `fp16` FLORES ve prototip çift sonuçları, model seçiminde (D-010) üretilen dosyalarla öğe öğe birebir aynı çıktı.
+- **Tekrar üretilebilirlik (2026-10-17):** FLORES ölçümü altı kolun tamamında baştan yeniden çalıştırıldı (`results/raw/*__flores_bpb__rerun.jsonl`); `scripts/compare_runs.py` ile 2024'er cümlenin hepsinde NLL ve token sayıları birebir aynı. `scripts/summarize.py` iki çalıştırmada bayt düzeyinde aynı tabloları üretti.

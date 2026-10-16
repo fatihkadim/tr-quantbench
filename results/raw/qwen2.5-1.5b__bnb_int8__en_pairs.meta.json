@@ -1,0 +1,92 @@
+{
+  "args": {
+    "model": "qwen2.5-1.5b",
+    "arm": "bnb_int8",
+    "task": "en_pairs",
+    "limit": null,
+    "batch_size": null,
+    "out_suffix": ""
+  },
+  "batch_size": 1,
+  "arm_config": {
+    "method": "bitsandbytes",
+    "bits": 8,
+    "load_in_8bit": true,
+    "llm_int8_threshold": 6.0,
+    "where": "local"
+  },
+  "reference_dtype": "bfloat16",
+  "quantization": {
+    "linear8bit": 196,
+    "linear4bit": 0,
+    "linear_unquantized": [
+      "lm_head"
+    ],
+    "n_linear_unquantized": 1
+  },
+  "summary": {
+    "all": {
+      "n": 5999,
+      "acc": 0.8721453575595932
+    },
+    "category=distractor_agreement_relational_noun": {
+      "n": 1000,
+      "acc": 0.869
+    },
+    "category=distractor_agreement_relative_clause": {
+      "n": 1000,
+      "acc": 0.765
+    },
+    "category=irregular_plural_subject_verb_agreement_1": {
+      "n": 1000,
+      "acc": 0.927
+    },
+    "category=irregular_plural_subject_verb_agreement_2": {
+      "n": 999,
+      "acc": 0.8788788788788788
+    },
+    "category=regular_plural_subject_verb_agreement_1": {
+      "n": 1000,
+      "acc": 0.915
+    },
+    "category=regular_plural_subject_verb_agreement_2": {
+      "n": 1000,
+      "acc": 0.878
+    }
+  },
+  "seconds": 2424.1,
+  "load_seconds": 9.3,
+  "eval_seconds": 2414.6,
+  "tokens_per_s": 40.6,
+  "max_vram_gb": 1.71,
+  "memory_footprint_gb": 1.66,
+  "env": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.19.0",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "datasets": null,
+      "huggingface-hub": "1.33.0",
+      "numpy": "2.4.6"
+    },
+    "gpu": {
+      "cuda_available": true,
+      "cuda": "12.8",
+      "cudnn": 91900,
+      "gpu_name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+      "gpu_mem_gb": 4.0,
+      "bf16_supported": true
+    },
+    "config_sha256": {
+      "configs/models.yaml": "b8b76df360cda44b3c69e30c6147d89dcad81d1ef89b4c69853d8e76e68b558d",
+      "configs/arms.yaml": "5881d6f8917ff67eaa278a80678fe1a382ae37f080a721fbbcbe6edf758c3232",
+      "configs/eval.yaml": "ed5a85f7d350dd872f67aedf81f8987113b8f537cd9e9f05d2b56cd7b0ff5366"
+    },
+    "data_sha256": {
+      "data/probes/en_controls.jsonl": "69252029afb065e1db74be37d0cc544c89d0ebd9002d6394eb76898586223a50"
+    }
+  }
+}

@@ -4,7 +4,7 @@ UV ?= uv
 RUN := $(UV) run
 SMOKE_MODEL ?= qwen2.5-1.5b
 
-.PHONY: setup env test lint data eval-smoke
+.PHONY: setup env test lint data eval-smoke summarize
 
 setup:
 	$(UV) sync
@@ -25,3 +25,6 @@ data:
 eval-smoke:
 	$(RUN) python -m scripts.run_eval --model $(SMOKE_MODEL) --arm fp16 --task flores_bpb --limit 10
 	$(RUN) python -m scripts.run_eval --model $(SMOKE_MODEL) --arm fp16 --task tr_pairs_proto --limit 10
+
+summarize:
+	$(RUN) python -m scripts.summarize

@@ -16,6 +16,7 @@ arms:
     method: bitsandbytes
     bits: 8
     load_in_8bit: true
+    llm_int8_threshold: 6.0  # LLM.int8 aykırı değer eşiği (kütüphane varsayılanı, açıkça sabit)
     where: local
   bnb_nf4:
     method: bitsandbytes

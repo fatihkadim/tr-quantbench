@@ -39,5 +39,5 @@ Thumbs.db
 .claude/
 CLAUDE.md
 CLAUDE.local.md
-docs/PLAN.md
-docs/STATUS.md
+docs/*
+!docs/PROTOCOL.md

@@ -12,6 +12,8 @@ dependencies = [
     "huggingface-hub>=0.34",
     "numpy>=1.26",
     "pyyaml>=6.0",
+    "bitsandbytes>=0.50",
+    "accelerate>=1.10",
 ]
 
 [dependency-groups]

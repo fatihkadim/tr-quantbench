@@ -47,20 +47,24 @@ uv run pytest -q                                 # testler
 uv run python -m scripts.prepare_flores          # FLORES-200'ü indir ve doğrula
 uv run python -m scripts.make_probes             # minimal çiftleri üret, BLiMP'i indir
 uv run python -m scripts.run_eval --model qwen2.5-1.5b --arm fp16 --task flores_bpb
-uv run python -m scripts.run_eval --model llama-3.2-1b --arm fp16 --task tr_pairs_proto
+uv run python -m scripts.run_eval --model llama-3.2-1b --arm bnb_nf4 --task tr_pairs
+uv run python -m scripts.run_all                 # tüm modeller × yerel kollar × görevler
+uv run python -m scripts.summarize               # bootstrap GA'lı özet tablolar
 ```
 
-Her çalıştırma `results/raw/` altına cümle bazlı bir JSONL ve paket sürümleri, GPU, model revizyonu ve veri hash'lerini içeren bir `.meta.json` yazar. `make` kuruluysa aynı komutlar [`Makefile`](Makefile) hedefleriyle de çalıştırılabilir (`make test`, `make data`, `make eval-smoke`).
+Tekrar üretilebilirlik denetimi için ölçümler `--suffix __rerun` ile yeniden çalıştırılıp `uv run python -m scripts.compare_runs results/raw --suffix __rerun` ile öğe öğe karşılaştırılabilir.
+
+`--arm` için `fp16`, `bnb_int8`, `bnb_nf4`; `--task` için `flores_bpb`, `tr_pairs` (Türkçe minimal çiftler), `en_pairs` (İngilizce kontrol çiftleri) kullanılabilir. Her çalıştırma `results/raw/` altına cümle bazlı bir JSONL ve paket sürümleri, GPU, model revizyonu, nicemleme ayarları ve veri hash'lerini içeren bir `.meta.json` yazar. `scripts.summarize` bu dosyalardan `results/tables/` altına özet tabloları üretir. `make` kuruluysa aynı komutlar [`Makefile`](Makefile) hedefleriyle de çalıştırılabilir (`make test`, `make data`, `make eval-smoke`).
 
 ## Depo yapısı
 
 ```
 configs/     model kimlikleri ve revizyonları, nicemleme kolları, değerlendirme ayarları
 data/        kök sözlüğü, minimal çiftler, FLORES sürüm notu (FLORES metni repoda tutulmaz)
-src/         veri hazırlama, minimal çift üreteci, NLL/BPB değerlendirmesi
+src/         veri hazırlama, minimal çift üreteci, NLL/BPB değerlendirmesi, bootstrap analizi
 scripts/     komut satırı giriş noktaları
-tests/       birim testler (ünlü uyumu kuralları, NLL tutarlılığı)
-results/     cümle bazlı sonuçlar ve çalıştırma meta verileri
+tests/       birim testler (ünlü uyumu kuralları, NLL tutarlılığı, analiz metrikleri)
+results/     cümle bazlı sonuçlar, çalıştırma meta verileri ve özet tablolar
 docs/        araştırma protokolü
 ```
 
